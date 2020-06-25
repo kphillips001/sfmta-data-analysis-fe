@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 const ScoreCardChart = (props) => {
 
-  console.log('this is now props', props)
   return (
     <>
       <h1></h1>

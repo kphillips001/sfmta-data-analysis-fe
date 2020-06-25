@@ -16,7 +16,7 @@ export const SET_ACTIVE_ROUTE = "SET_ACTIVE_ROUTE";
 
 
 export const getType = () => dispatch => {
-    axios.get("https://be.datadriventransit.org/api/type")
+    axios.get("https://sfmta-data-analysis.herokuapp.com/api/type")
         .then(res => {
             dispatch({ type: SET_TRANSIT_TYPE, payload: res.data })
         })
@@ -26,7 +26,7 @@ export const getType = () => dispatch => {
 }
 
 export const sendType = param => dispatch => {
-    axios.post("https://be.datadriventransit.org/api/route", param)
+    axios.post("https://sfmta-data-analysis.herokuapp.com/api/route", param)
         .then(res => {
             dispatch({ type: GET_ROUTE, payload: res.data })
         })
@@ -36,7 +36,7 @@ export const sendType = param => dispatch => {
 }
 
 export const getCoordinates = id => dispatch => {
-    axios.get(`https://be.datadriventransit.org/api/route/${id}`)
+    axios.get(`https://sfmta-data-analysis.herokuapp.com/${id}`)
         .then(res => {
             dispatch({ type: GET_COORDINATES, payload: res.data })
         })
@@ -46,7 +46,7 @@ export const getCoordinates = id => dispatch => {
 }
 
 export const getReport = () => dispatch => {
-    axios.get('https://be.datadriventransit.org/api/report')
+    axios.get('https://sfmta-data-analysis.herokuapp.com/api/report')
         .then(res => {
             dispatch({ type: GET_REPORTS, payload: res.data })
         })
@@ -56,7 +56,7 @@ export const getReport = () => dispatch => {
 }
 
 export const getRoutereport = (param) => dispatch => {
-    axios.post('https://be.datadriventransit.org/api/report/type', param)
+    axios.post('https://sfmta-data-analysis.herokuapp.com/api/report/type', param)
         .then(res => {
             dispatch({ type: GET_ROUTEREPORT, payload: res.data })
         })
@@ -66,7 +66,7 @@ export const getRoutereport = (param) => dispatch => {
 }
 
 export const getDate = (param) => dispatch => {
-    axios.post('https://be.datadriventransit.org/api/report/date', param)
+    axios.post('https://sfmta-data-analysis.herokuapp.com/api/report/date', param)
         .then(res => {
             console.log(res, "get report by date");
             dispatch({ type: GET_DATE, payload: res.data })
@@ -82,7 +82,7 @@ export const setDate = (date) => dispatch => {
 }
 
 export const getRouteList = (object) => dispatch => {
-    axios.post('https://be.datadriventransit.org/api/route-report/', object)
+    axios.post('https://sfmta-data-analysis.herokuapp.com/api/route-report/', object)
         .then(res => {
             console.log('happy', res)
             dispatch({ type: GET_ROUTE_REPORT, payload: res.data })
